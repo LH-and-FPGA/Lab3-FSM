@@ -27,8 +27,6 @@ int main(int argc, char **argv, char **env) {
     f1_fsm->en = 0;
 
     while(true) {
-        // sinegen->incr = vbdValue();
-        // 这个更加有趣一点儿
         if (vbdFlag() == 1) {
             f1_fsm->en = !f1_fsm->en;
         }

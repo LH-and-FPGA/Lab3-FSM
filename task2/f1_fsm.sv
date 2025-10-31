@@ -23,18 +23,20 @@ module f1_fsm (
     end
 
     always_comb begin
-        case (current)
-            S0: next = S1;
-            S1: next = S2;
-            S2: next = S3;
-            S3: next = S4;
-            S4: next = S5;
-            S5: next = S6;
-            S6: next = S7;
-            S7: next = S8;
-            S8: next = S0;
-            default: next = S0;
-        endcase
+        if (en) begin
+            case (current)
+                S0: next = S1;
+                S1: next = S2;
+                S2: next = S3;
+                S3: next = S4;
+                S4: next = S5;
+                S5: next = S6;
+                S6: next = S7;
+                S7: next = S8;
+                S8: next = S0;
+                default: next = S0;
+            endcase
+        end
     end
 
     assign data_out = current;
