@@ -6,6 +6,13 @@
 #define MAX_SIM_CYC 100000
 #define top_N 46
 
+enum class Record{
+    INIT,
+    PRE,
+    READY,
+    PUSH
+};
+
 int main(int argc, char **argv, char **env)
 {
     int simcyc;     // simulation clock count
@@ -32,6 +39,7 @@ int main(int argc, char **argv, char **env)
     top->rst = 0;
     top->en = 1;
     top->N = top_N;
+    Record record = Record::INIT;
 
     // run simulation for MAX_SIM_CYC clock cycles
     for (simcyc = 0; simcyc < MAX_SIM_CYC; simcyc++) {
@@ -46,6 +54,30 @@ int main(int argc, char **argv, char **env)
         top->trigger = vbdFlag();
         vbdBar(top->data_out & 0xFF);
         vbdCycle(simcyc);
+
+        switch (record)
+        {
+        case Record::INIT:
+            if (top->data_out == 0b11111111) record = Record::PRE;
+            break;
+        case Record::PRE:
+            if (top->data_out != 0b11111111) record = Record::READY;
+            break;
+        case Record::READY:
+            vbdInitWatch();
+            record = Record::PUSH;
+            break;
+        case Record::PUSH:
+            if (!vbdFlag()) {
+                int result = vbdElapsed();
+                vbdHex(4, (int(result) >> 16) & 0xF);
+                vbdHex(3, (int(result) >> 8) & 0xF);
+                vbdHex(2, (int(result) >> 4) & 0xF);
+                vbdHex(1, (int(result)) & 0xF);
+            }
+        default:
+            break;
+        }
         
         if (vbdGetkey() == 'q') {
             vbdClose();
