@@ -2,12 +2,10 @@
 
 ## EIE2 Instruction Set Architecture & Compiler (IAC)
 
----
 ## Lab 3 - Finite State Machines (FSM)
 
 **_Peter Cheung, @saturn691, V1.4 - 30 Oct 2025_**
 
----
 
 </center>
 
