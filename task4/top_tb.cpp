@@ -25,7 +25,7 @@ int main(int argc, char **argv, char **env)
     if (vbdOpen() != 1)
         return (-1);
     vbdHeader("L3T3");
-    vbdSetMode(1); // Flag mode set to one-shot
+    vbdSetMode(0); // Flag mode set to one-shot
 
     // initialize simulation inputs
     top->clk = 0;
