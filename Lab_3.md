@@ -23,9 +23,8 @@ By the end of this experiment, you should be able to:
 
 Clone this repo to your local disk.  
 
----
+
 ## Task 0 - Setup GTest
----
 
 ### Introduction
 
@@ -39,7 +38,7 @@ techniques, this is beyond the scope of the course. We will introduce a basic
 approach to testing, also known as **verification**. There will be no need to
 write any tests for this lab.
 
----
+
 
 The assessed coursework will be verified using a framework, called GTest. GTest
 is an industry standard, with programs such as LLVM tested using GTest 
@@ -84,9 +83,9 @@ created a passing testcase):
 [  PASSED  ] 2 tests.
 ```
 
----
+
 ## Task 1 - 4-bit LFSR and Pseudo Random Binary Sequence
----
+
 
 **Step 1 - Create the component lfsr.sv**
 
@@ -117,9 +116,9 @@ The 7th order primitive polynomial is:
 
 <p align="center"> <img src="images/equation.jpg" /> </p>
 
----
+
 ## Task 2 - Formula 1 Light Sequence
----
+
 
 **Step 1 - Create the component f1_fsm.sv**
 
@@ -152,9 +151,9 @@ You should also display this result on the neopixel strip using the **_vbdBar( )
 ```
 Note that **_vbdBar()_** takes an unsigned 8-bit integer parameter between the value 0 and 255. Therefore you must mask _data_out_ with 0xFF.
 
----
+
 ## Task 3 - Exploring the **_clktick.sv_** and the **_delay.sv_** modules
----
+
 
 In Lecture 4 slides 9 & 10, you were introduced to the **_clktick.sv_** module. The interface signals for this module is:
 
