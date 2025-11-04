@@ -32,7 +32,7 @@ module top #(
         .clk(clk),
         .rst(rst),
         .trigger(cmd_delay),
-        .n(K),
+        .n({3'b000, K}),
         .time_out(tick2)
     );
 
