@@ -27,9 +27,10 @@ int main(int argc, char **argv, char **env) {
     f1_fsm->en = 0;
 
     while(true) {
-        if (vbdFlag() == 1) {
-            f1_fsm->en = !f1_fsm->en;
-        }
+        // if (vbdFlag() == 1) {
+        //     f1_fsm->en = !f1_fsm->en;
+        // }
+        f1_fsm->en = vbdFlag();
 
         vbdBar(f1_fsm->data_out & 0xFF);
 
