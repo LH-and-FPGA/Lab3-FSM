@@ -4,6 +4,8 @@
 rm -rf obj_dir
 rm -f *.vcd
 
+~/Documents/iac/lab0-devtools/tools/attach_usb.sh
+
 # run Verilator to translate Verilog into C++, including C++ testbench
 verilator -Wall --cc --trace clktick.sv --exe clktick_tb.cpp
 
